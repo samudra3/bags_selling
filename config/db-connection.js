@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
+const debug = require('debug')("mongoose:development");
+const config = require('config');
 mongoose
-.connect("mongodb://localhost:27017/E-userdata")
+.connect(`${config.get('MONGOOSE_URI')}/bagproject-db`)
 .then(function (){
-    console.log("Connected to MongoDB");
+    debug("Connected to MongoDB");
 })
 .catch(function (err) {
     console.log("Could not connect to MongoDB",err);
