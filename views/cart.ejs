@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main ">
+    <div class="second-main  mt-10">
+        <%userfind.cart.forEach(product => {%>
+                <div class="image-container flex mt-5">
+         <div class="left-side w-48 h-65 ml-3 border-2 border-gray-500 bg-gray-500 flex-shrink-0">
+            <div class="box h-full w-full">
+                <img class="h-[12rem] w-full object-contain" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                alt="">
+                <hr class="h-1 bg-yellow-500 border-0">
+                <div class="price-holder text-white ">
+                    <h3><%= product.name %></h3>
+                    <h3>Price:<%= product.price-product.discount %></h3>
+                </div>
+
+            </div>
+       </div>
+         <div class="detail-info ml-56 mt-10">
+            <h3>Product-Price:<%=product.price%></h3>
+            <h3>Discount:<%=product.discount%></h3>
+            <hr class="h-1 bg-gray-500 border-0">
+            <h3>Total-Price:<%=product.price-product.discount%></h3>
+
+        </div>
+            </div>
+
+            <%}) %>
+    </div>
+    </div>
+
+</body>
+</html>

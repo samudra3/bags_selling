@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main flex w-full h-screen items-center justify-center">
+        <div class="left-register border-2 border-red-300 p-5 shadow-md hover:shadow-red-300">
+            <h3 class="py-3 px-1 font-weight-1 bg-red-100 font-sarif">Create Your Account</h3>
+            <form action="/user/register" method="post">
+                <label for="email">Email</label>
+                <input id="email"class=" bg-zinc-100 block" type="email" name="email" id="" placeholder="your email">
+                <label for="fullname">Fullname</label>
+                <input id="fullname"class=" bg-zinc-100 block" type="text" name="fullname" id="" placeholder="your name">
+                <label for="password">Password</label>
+                <input id="password"class=" bg-zinc-100 block" type="password" name="password" id="" placeholder="password">
+                <button class=" mt-2 text-white inline-block rounded-md bg-gray-500 border-2 hover:border-red-300 tracking-tighter px-1" type="submit">register</button>
+            </form>
+        </div>
+        <div class="right-login border-2 border-blue-500 p-5 ml-10 shadow-md hover:shadow-blue-300">
+            <h3 class="py-3 px-1 font-weight-1 bg-blue-100 font-sans">User Login</h3>
+
+            <form action="/user/login" method="post">
+                <label for="email-login">Email</label>
+                <input id="email-login"class="block bg-zinc-100"type="email" name="email" id="" placeholder="your email">
+                <label for="Password-login">Password</label>
+                <input id="Password-login"class="block bg-zinc-100"type="text" name="password" id="" placeholder="your password">
+                 <button class="mt-2 px-1 text-white inline-block rounded-md bg-gray-500 border-2 hover:border-blue-300 tracking-tighter "type="submit">login</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

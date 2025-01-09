@@ -1,27 +1,36 @@
 const express= require('express');
 const app = express();
-const product=require('./models/product-model')
-const user=require('./models/user-model')
+const db = require('./config/db-connection')
+require('dotenv').config();
 const cookieparser= require('cookie-parser');
-const bcrypt= require('bcrypt');
-const jwt= require('jsonwebtoken');
 const path= require('path');
-const db = require('./config/db-connection');
 const userroute = require('./routes/user-routes')
 const productroute = require('./routes/product-routes')
 const ownerroute = require('./routes/owner-routes')
+const session = require('express-session');
+const flash = require('connect-flash');
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+ // for development only, in production set secure to true  // secure: true, maxAge: 60000 * 60 * 24 * 30 // 30 days
+}))
+app.use(flash());
+
 app.use(express.json());
 app.use(cookieparser());
 app.use(express.urlencoded({ extended:true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine','ejs');
 app.use('/user', userroute);
 app.use('/product', productroute);
 app.use('/owner', ownerroute);
-app.set('view engine','ejs');
+
 
 
 app.get('/', function(req, res){
-    res.send('welcome');
+    let message = req.flash('error');
+    res.render('index',{message});
 });
 app.listen(3000, function(){
     console.log('Server is running on port 3000');

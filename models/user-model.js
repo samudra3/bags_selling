@@ -7,11 +7,12 @@ fullname:{
     trim:true,
 },
 email:String,
-passowrd:String,
-cart:{
-    type:Array,
-    defaul:[],
-},
+password:String,
+cart:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'product',
+    default:[],
+}],
 isadmin:Boolean,
 orders:{type:Array,
     default:[],

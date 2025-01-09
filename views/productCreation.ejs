@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="font-weight-10 text-md mb-10 border-2 bg-zinc-100 font-black font-sans">Royal Bags</nav>
+    <h5 class="text-sm">All Product</h5>
+    <h5 class="text-sm">Create New Product</h5>
+ <div class="main w-full h-screen">
+
+  <div class="file-container ml-80 mt-10">
+    <h2 class="font-sans font-bold  ">Create New Product</h2>
+    <h3 class="font-sans font-semibold ">Product Details</h3>
+    <h4 class="font-sans font-medium ">Product image</h4>
+    <form action="owner/product/create" method="post" class="mt-5" enctype="multipart/form-data">
+        <input type="file" class="block mb-3 border-2 bg-zinc-100 "name="file">
+        <input type="text" class="border-2" placeholder="Product Name" name="name">
+        <input type="text" class="border-2 inline-block ml-3" placeholder="Product Price" name="price">
+        <input type="text" class="block border-2 mt-2" placeholder="Discount Price" name="discount">
+
+<div class="second-part mt-5">
+    <h3>Panel Details</h3>
+    <input type="text" class="border-2" name="bgcolor" id="" placeholder="Background Color">
+    <input type="text" class="border-2 inline-block ml-3" name="panelcolor" id="" placeholder="Panel Color">
+    <input type="text" class="border-2 block mt-2" name="textcolor" placeholder="Text Color">
+</div>
+        <button type="submit" class="border-2 bg-blue-500 rounded-md tracking-tighter inline-block p-1 mt-2">Create New Product</button>
+    </form>
+  </div>
+ </div>
+</body>
+</html>

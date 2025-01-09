@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="boss w-full h-screen">
+
+    <nav class="font-semibold font-black font-sans bg-zinc-100 flex relative">
+
+        <div class="brand-name"><h3>Royal Bags</h3></div>
+        <% if (message.length!=0) { %>
+            <span class="bg-green-100 text-green-800 border border-green-500 p-3 ml-80 rounded mb-4">
+              <%= message%>
+            </span>
+          <% } %>
+        <div class="links flex gap-3 right-0 absolute right-2">
+            <a href="">Shop</a>
+            <a href="/user/cart">Cart</a>
+            <a href="">Account</a>
+            <a href="/user/logout" class="text-red-500"> Logout</a>
+        </div>
+    </nav>
+    <div class="main flex w-full h-screen">
+
+        <div class="left-value h-screen">
+            <div class="sortby flex mt-10 ml-3">
+                <h3>sortby</h3>
+                <form action="">
+                    <select name="sortby" id="">
+                        <option value="popular">Popular</option>
+                        <option value="newest">Newest</option>
+                    </select>
+                </form>
+            </div>
+            <div class="part2 flex ml-3 flex-col mt-40">
+    <a href="">newcollections</a>
+    <a href="">all products</a>
+    <a href="">discount products</a>
+            </div>
+            <div class="part3 mt-28 ml-3">
+                <a href="" class="block w-fit">filter by</a>
+                <a href="" class="block w-fit">availablity</a>
+                <a href="" class="block w-fit">discount</a>
+            </div>
+        </div>
+        <div class="product-conatiner ml-80 mt-5 flex flex-wrap gap-3">
+          <%prod.forEach(function(product){%>
+           <div class="image-container w-52">
+    <div class="background-image w-full h-52 bg-red-500">
+        <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+        alt="">
+    </div>
+            <div class="panel bg-orange-500 flex relative">
+                <div class="property">
+                    <h3><%= product.name%></h3>
+                    <h3>₹<%= product.price%></h3>
+                </div>
+                <a href="/user/cart/<%= product._id%>" class="ml-3 w-7 h-7 flex items-center justify-center rounded-full bg-white absolute right-0">
+                    <i class="fas fa-cart-plus"></i>
+                </a>
+            </div>
+           </div>
+           <%});%>
+
+
+
+
+           </div>
+
+    </div>
+</div>
+</body>
+</html>
