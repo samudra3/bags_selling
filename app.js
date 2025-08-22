@@ -26,7 +26,7 @@ app.use('/user', userroute);
 app.use('/product', productroute);
 app.use('/owner', ownerroute);
 
-
+console.log("first commit on this repo");
 
 app.get('/', function(req, res){
     let message = req.flash('error');
